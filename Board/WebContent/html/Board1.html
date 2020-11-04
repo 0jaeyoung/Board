@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>재영 게시판</title>
+<script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="../js/Board1.js"></script>
+<style>
+/* @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css); */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+body{
+	font-family: 'Nanum Gothic', sans-serif;
+}
+.hide {
+	display: none;
+}
+h2 {
+	text-align : center;
+}
+#btnSection{
+	position : absolute;
+	width:50%;
+	left : 20%;
+}
+#btnSearch {
+	width:3%;
+}
+#btnBack {
+	width:3%;
+}
+.icon	{
+	width: 3%;
+}
+</style>
+</head>
+<body>
+<div id="header">
+<div style="text-align:right;">
+<input class="icon" id="btnReload" type="image"  src="../images/reloadImg.png">새로고침
+<input class="icon" id="btnBack" type="image" src="../images/logoutImg.png">로그아웃
+</div>
+	<h2>게시판 제목</h2>
+	<div class="search" style="text-align:right;">
+		<input type="text" name="search" placeholder="검색어 입력">
+		<input class="icon" id="btnSearch" type="image" src="../images/searchImg.png">
+	</div>
+	전체 글 (<span id="brdCnt">10</span>)
+	<button id="btnRegister" style="float: right;">글쓰기</button>
+</div>
+	<div class="frame" id="brdList">
+		<div class="lists">
+			<hr>
+			<h3 class="title">제목제목제목</h3>
+			<label class="regDate">2020-08-25</label>&emsp;<label class="regName">김재영</label>
+		</div>
+	</div>
+	<br>
+	<div id="btnSection"><button id="btnMore" style="margin:auto; width:100%">더보기</button></div>
+</body>
+</html>
