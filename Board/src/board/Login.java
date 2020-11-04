@@ -24,13 +24,13 @@ public class Login extends HttpServlet {
 		SqlSessionFactory factory = null;
 		SqlSession session = null;
 		try {
-			// DB ¿¬°á
+			// DB ï¿½ï¿½ï¿½ï¿½
 			String config = "board/mybatis/config.xml";
 			is = Resources.getResourceAsStream(config);
 			factory = new SqlSessionFactoryBuilder().build(is);
 			session = factory.openSession();
 			
-			// request ÆÄ¶ó¹ÌÅÍ °ª ¹Þ±â
+			// request ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Þ±ï¿½
 			InputStream inputStream = request.getInputStream();
 			ObjectMapper mapper = new ObjectMapper();
 			HashMap reqData = mapper.readValue(inputStream, HashMap.class);
@@ -38,21 +38,21 @@ public class Login extends HttpServlet {
 			String uPW = (String) reqData.get("uPW");
 			HashMap<String, String> getUser = session.selectOne("BOARD.getUserById", uID);
 			
-			// logicÃ³¸®
+			// logicÃ³ï¿½ï¿½
 			HashMap<String, String> resUser = new HashMap<>();
-			if( getUser!=null ) { // IDÀÏÄ¡
-				if( uPW.equals(getUser.get("PASSWD")) ) { // PWÀÏÄ¡
+			if( getUser!=null ) { // IDï¿½ï¿½Ä¡
+				if( uPW.equals(getUser.get("PASSWD")) ) { // PWï¿½ï¿½Ä¡
 					resUser.put("result", "true");
 					resUser.put("userName", getUser.get("USER_NAME"));
 					resUser.put("userType", getUser.get("USER_TYPE"));
-				} else { // PWºÒÀÏÄ¡
+				} else { // PWï¿½ï¿½ï¿½ï¿½Ä¡
 					resUser.put("result", "false");
 				}
-			} else { // IDºÒÀÏÄ¡
+			} else { // IDï¿½ï¿½ï¿½ï¿½Ä¡
 				resUser.put("result", "false");
 			}
 			
-			// response °´Ã¼ »ý¼º
+			// response ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½
 			String resData = mapper.writeValueAsString(resUser);
 			response.setContentType("application/json");
 			response.setCharacterEncoding("utf8");
