@@ -25,11 +25,15 @@ $("document").ready(function(){
 			$("#brdList").append(listTmp);
 		}
 		$(".lists:first").addClass("hide");
-	}
+	};
 	
 	$("#brdList").on("click", ".lists", function(){
 		console.log($(this).attr("boardId"));
 		//location.href="html/Board2.html";
 		window.open("Board2.html?"+$(this).attr("boardId"), "_self");
-	})
+	});
+	
+	$("#btnRegister").on("click", function(){
+		window.open("Board3.html", "_self");
+	});
 })

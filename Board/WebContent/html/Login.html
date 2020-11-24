@@ -5,6 +5,12 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="lib/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="js/Login.js"></script>
+<style>
+p {
+	display:inline-block;
+	font-size:80%;
+}
+</style>
 </head>
 <body>
 <h1>LOGIN PAGE</h1>
@@ -20,6 +26,10 @@
 			<td><input type="password" id="passwd" placeholder="비밀번호를 입력하세요."></td>
 		</tr>
 	</table>
+	<div>
+		<p class="ch"><input type="checkbox" id="saveId">ID저장</p>
+		<p class="ch"><input type="checkbox" id="savePw">자동로그인</p>
+	</div>
 </div>
 </body>
 </html>

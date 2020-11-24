@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 작성</title>
+<title>게시글 작성 BOARD3</title>
 <script type="text/javascript" src="../lib/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="../js/Board3.js"></script>
 <style>
@@ -17,9 +17,14 @@ body {
 .hide {
 	display: none;
 }
+
+.icon	{
+	width: 3%;
+}
 </style>
 </head>
 <body>
+<input class="icon" id="btnBack" type="image"  src="../images/backImg.png">뒤로가기
 <div class="container" style="width:80%;">
 	<div class="row" style="width:100%;">
 		<table class="table" style="text-align: center; border: 1px solid #dddddd; width:80%;">
@@ -27,9 +32,9 @@ body {
 				<tr><th colspan="2" style="background-color: #eeeeee; text-align: center;">게시글 작성하기</th></tr>
 			</thead>
 			<tbody>
-				<tr><td><input type="text" placeholder="글 제목"/></td></tr>
-				<tr><td><textarea placeholder="글 내용" style="height: 350px;"></textarea></td></tr>
-				<tr><td><button type="button">등록</button></td></tr>
+				<tr><td><input type="text" id="boardTitle" placeholder="글 제목"/></td></tr>
+				<tr><td><textarea id="boardContent" placeholder="글 내용" style="height: 350px;"></textarea></td></tr>
+				<tr><td><button type="button" id="btnRegister">등록</button></td></tr>
 			</tbody>
 		</table>
 	</div>

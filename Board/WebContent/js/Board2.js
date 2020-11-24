@@ -1,5 +1,5 @@
 $("document").ready(function(){
-	$("#boardTitle").click(function(){history.back()});
+	$("#btnBack").click(function(){history.back()});
 	var boardInfo = new Object();
 	boardInfo.boardId = location.search.substr(1);
 	$.ajax({

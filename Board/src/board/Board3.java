@@ -18,13 +18,13 @@ import board.model.Board;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-@WebServlet("/Board2")
-public class Board2 extends HttpServlet {
+@WebServlet("/Board3")
+public class Board3 extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		InputStream is = null;
 		SqlSessionFactory factory = null;
 		SqlSession session = null;
-		try {
+		try{
 			String config = "board/mybatis/config.xml";
 			is = Resources.getResourceAsStream(config);
 			factory = new SqlSessionFactoryBuilder().build(is);
@@ -33,14 +33,10 @@ public class Board2 extends HttpServlet {
 			InputStream inputStream = request.getInputStream();
 			ObjectMapper mapper = new ObjectMapper();
 			Board reqData = mapper.readValue(inputStream, Board.class);
-			String boardId = reqData.getBoardId();
-			
-			Board boardDetail = session.selectOne("BOARD.getBoardDetail", boardId);
-			String resData = mapper.writeValueAsString(boardDetail);
-			response.setContentType("application/json");
-			response.setCharacterEncoding("utf8");
-			response.getWriter().print(resData);
-		} catch (Exception e){
+			session.insert("BOARD.registerBoard", reqData);
+			session.commit();
+			response.getWriter().print("success");
+		} catch(Exception e){
 			e.printStackTrace();
 		} finally {
 			if (is != null) try {is.close();} catch(Exception e) {}
